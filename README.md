@@ -2,7 +2,7 @@
 
 ShowUp is a production-ready, full-stack e-commerce recommendation system that combines real-time event tracking, rule-based heuristics, and Google Gemini AI to deliver highly personalized shopping experiences.
 
-## 🚀 Key Features
+## Key Features
 
 - **Hybrid Recommendations**: Combines Category Similarity, Product Popularity, and Recency with AI-driven re-ranking using Gemini 2.5 Flash Lite
 - **Contextual Awareness**: Custom endpoints for Home Feed, Similar Products, and Cart Cross-selling
@@ -14,7 +14,7 @@ ShowUp is a production-ready, full-stack e-commerce recommendation system that c
 - **Order Management**: Complete order creation and tracking system
 - **Production Secure**: JWT Authentication, Redis-based Rate Limiting, NoSQL Injection protection, and XSS sanitization
 
-## 🏗 Architecture
+## Architecture
 
 ```
 ┌─────────────────┐
@@ -50,7 +50,7 @@ ShowUp is a production-ready, full-stack e-commerce recommendation system that c
 4. **AI Enhancement** → Send top candidates to Gemini for re-ranking (with timeout fallback)
 5. **Response** → Cache results in Redis and return to client
 
-## 🧠 Recommendation Logic
+## Recommendation Logic
 
 The engine uses a tiered scoring approach:
 
@@ -64,14 +64,14 @@ The engine uses a tiered scoring approach:
    - Gemini re-ranks them based on user history and generates natural language explanations
    - **SLA Enforcement**: If Gemini takes > 400ms, the system falls back to rule-based scores to ensure < 500ms total latency
 
-## ⚡ Redis Usage
+## Redis Usage
 
 - **Session Events Buffer**: User events stored in Redis lists for rapid session analysis
 - **Recommendation Cache**: Final results cached with 5-10 minute TTL
 - **Cache Invalidation**: Any "Buy" or "Click" event automatically invalidates user's recommendation cache
 - **Rate Limiting**: Redis-based rate limiting for API protection
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Frontend
 - **React 19** with Vite
@@ -95,7 +95,7 @@ The engine uses a tiered scoring approach:
 - Input validation with Joi
 - Rate limiting with Redis
 
-## 📦 Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 
@@ -190,7 +190,7 @@ npm run dev
 # Frontend runs on http://localhost:5173
 ```
 
-## 📖 API Documentation
+## API Documentation
 
 Once the backend is running, access the interactive Swagger documentation at:
 
@@ -216,7 +216,7 @@ Once the backend is running, access the interactive Swagger documentation at:
 - `GET /api/v1/orders` - Get user's orders
 - `GET /api/v1/orders/:orderId` - Get order details
 
-## 🧪 Testing
+## Testing
 
 ### Load Testing with k6
 
@@ -227,7 +227,7 @@ k6 run tests/loadtest.js
 
 This will simulate 100 virtual users for 30 seconds and verify that 95% of requests complete in under 500ms.
 
-## 🎯 Features in Detail
+## Features in Detail
 
 ### Guest User Support
 - Users can browse and see recommendations without logging in
@@ -258,7 +258,7 @@ This will simulate 100 virtual users for 30 seconds and verify that 95% of reque
   - Cart contents
   - Product categories
 
-## 🔒 Security Features
+## Security Features
 
 - **JWT Authentication**: Secure token-based authentication
 - **Rate Limiting**: Redis-based rate limiting (50 req/15min for recommendations)
@@ -268,7 +268,7 @@ This will simulate 100 virtual users for 30 seconds and verify that 95% of reque
 - **CORS**: Configured for frontend origin
 - **Helmet**: Security HTTP headers
 
-## 📊 Database Schema
+## Database Schema
 
 ### User
 - Authentication (email, password)
@@ -292,7 +292,7 @@ This will simulate 100 virtual users for 30 seconds and verify that 95% of reque
 - Timestamp and metadata
 - Indexed on user, event type, and product
 
-## 🚀 Deployment
+## Deployment
 
 ### Backend Deployment
 
@@ -313,7 +313,7 @@ This will simulate 100 virtual users for 30 seconds and verify that 95% of reque
 2. Deploy the `dist` folder to your hosting service
 3. Update API URL in `frontend/src/api/client.js` or use environment variable
 
-## 🤝 Contributing
+## Contributing
 
 This project was built as a technical assignment for Spotmies LLC. For production use, consider:
 
@@ -324,17 +324,9 @@ This project was built as a technical assignment for Spotmies LLC. For productio
 - Adding admin dashboard
 - Setting up CI/CD pipeline
 
-## 📝 License
-
-Built for Spotmies LLC technical assignment.
-
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Google Gemini AI for recommendation enhancement
 - MongoDB for data persistence
 - Redis for caching and performance
 - React and Express.js communities
-
----
-
-**Built with ❤️ using the MERN stack and AI integration**
